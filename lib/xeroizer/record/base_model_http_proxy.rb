@@ -26,6 +26,7 @@ module Xeroizer
                                 end
             end
             params[:offset] = options[:offset] if options[:offset]
+            params[:page] = options[:page] if options[:page]
             params
           end
         
@@ -108,6 +109,7 @@ module Xeroizer
               when :datetime    then [field[:api_name], expression, "DateTime.Parse(\"#{value.utc.strftime("%Y-%m-%dT%H:%M:%S")}\")"]
               when :belongs_to  then
               when :has_many    then
+              when :has_one    then
             end
           end
 
